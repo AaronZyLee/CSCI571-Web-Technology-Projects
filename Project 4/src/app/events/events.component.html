@@ -1,0 +1,70 @@
+<div class="tab-content" id="pills-tabContent">
+    <div class="tab-pane fade" [ngClass]="{'show active': !loc}" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+        <div *ngIf="events && events.error == null">
+            <div class="btn-toolbar justify-content-end" style="margin: 10px;">
+                <button class="btn btn-outline-secondary" [disabled]='events === null || selectedIndex<0' (click)="goForward(events[selectedIndex].id)">Details<i class="material-icons md-16">
+                    chevron_right
+                    </i></button>
+              </div>
+              <table class="table table-hover">
+                  <thead>
+                    <tr>
+                      <th scope="col">#</th>
+                      <th scope="col">Date</th>
+                      <th scope="col">Event</th>
+                      <th scope="col">Category</th>
+                      <th scope="col">Venue Info</th>
+                      <th scope="col">Favorite</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let event of events;let i = index" [class.highlight]='selectedIndex === i' (click)='setIndex(i)'>
+                      <td>{{i+1}}</td>
+                      <td>{{event.dates?.start?.localDate}}</td>
+                      <td><a (click)='setIndex(i)' routerLink="/events/{{event.id}}" matTooltip={{event.name}} aria-label="Button that displays a tooltip when focused or hovered over">{{convertShortName(event.name)}}</a></td>
+                      <td>{{event.classifications && event.classifications[0]?.genre?event.classifications[0].genre.name:'N/A'}}-{{event.classifications && event.classifications[0].segment?event.classifications[0].segment.name:'N/A'}}</td>
+                      <td>{{event._embedded && event._embedded.venues?event._embedded.venues[0].name:'N/A'}}</td>
+                      <td><button (click)='toggleFavorite(event)'><i class="material-icons" [style.color]="global.localStorageItem(event.id) !== null?'yellow':'black'">{{global.localStorageItem(event.id) !== null?'star':'star_border'}}</i></button></td>
+                    </tr>
+                  </tbody>
+                </table>
+        </div>
+        <div *ngIf="events && events.error" class="alert alert-warning" role="alert">No Records</div>
+    </div>
+
+
+    <div class="tab-pane fade" [ngClass]="{'show active': loc}" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+        <div *ngIf="global.getKeys().length === 0" class="alert alert-warning" role="alert">No Records</div>
+        <div *ngIf="global.getKeys().length!==0">
+            <div class="btn-toolbar justify-content-end" style="margin: 10px;">
+                <button class="btn btn-outline-secondary" [disabled]='selectedId === null' (click)="goToDetails(selectedId, 'favorite')">Details<i class="material-icons md-16">
+                    chevron_right
+                    </i></button>
+              </div>
+            <table class="table table-hover">
+                <thead>
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Date</th>
+                    <th scope="col">Event</th>
+                    <th scope="col">Category</th>
+                    <th scope="col">Venue Info</th>
+                    <th scope="col">Favorite</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let key of global.getKeys();let i = index" [class.highlight]='selectedId === key' (click)='setId(key)'>
+                    <td>{{i+1}}</td>
+                    <td>{{global.getEvent(key).dates?.start?.localDate}}</td>
+                    <td><a (click)='setId(key);goToDetails(key,"favorite");' matTooltip={{global.getEvent(key).name}} aria-label="Button that displays a tooltip when focused or hovered over">{{convertShortName(global.getEvent(key).name)}}</a></td>
+                    <td>{{global.getEvent(key).classifications && global.getEvent(key).classifications[0].genre?global.getEvent(key).classifications[0].genre.name:'N/A'}}-{{global.getEvent(key).classifications && global.getEvent(key).classifications[0].segment?global.getEvent(key).classifications[0].segment.name:'N/A'}}</td>
+                    <td>{{global.getEvent(key)._embedded && global.getEvent(key)._embedded.venues?global.getEvent(key)._embedded.venues[0].name:'N/A'}}</td>
+                    <td><button (click)='delete(key)'><i class="material-icons">delete</i></button></td>
+                  </tr>
+                </tbody>
+              </table>
+        </div>
+    </div>
+</div>
+
+<!-- routerLink="/events/{{key}}"  -->

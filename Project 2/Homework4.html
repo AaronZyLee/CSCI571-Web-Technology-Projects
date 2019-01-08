@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Homework 4</title>
+	<style type="text/css">
+		.container{
+			margin: 0 auto;
+			text-align: center;
+		}
+		button{
+			margin-top: 15px;
+		}
+	</style>
+	 <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+</head>
+<body>
+	<div class="container">
+		<form method="POST">
+			<h2>Enter URL for Container Shipping Container List JSON File</h2>
+			<input type="text" id="Shipping" value="containerlist.json"></br>
+			<button onclick="getContainer();">Submit Query</button>
+		</form>
+	</div>
+	<script type="text/javascript">
+		function getContainer(){
+			var URL = document.getElementById("Shipping").value;
+			if(URL == ""){
+				alert("Please enter the json file name");
+				return None;
+			}
+			function loadJSON(url){
+				request = new XMLHttpRequest();
+				// request.onreadystatechange = function(){
+				// 	if(this.readyState == 4 && this.status == 200)
+				// 		jsonObj = JSON.parse(request.responseText);
+				// };
+				request.open('GET',url,false);
+				request.send();
+				jsonObj = JSON.parse(request.responseText);
+				console.log(request.status);
+				return jsonObj;
+			}
+			try{
+				jsonObj = loadJSON(URL);
+			}catch(e){
+				alert("file not found");
+			}
+			
+			// console.log(jsonObj);
+			if(jsonObj.Mainline.Table.Row == null){
+				alert("Container company entries are not found");
+				return None;
+			}
+			jsonObj.onload = generateHTML(jsonObj);
+			newWin = window.open("","Homework4","height=700,width=1100");
+			newWin.document.write(html_text);
+			newWin.document.close();
+		}
+		function generateHTML(jsonObj){
+			var root = jsonObj.Mainline.Table;
+			// console.log(root);
+
+			var header = root.Header.Data;
+			html_text="<html><head><title>Homework4</title></head><body>";
+			html_text+="<table border='2'>";
+			html_text+="<tbody><tr>";
+			header.forEach(function(head){
+				html_text+="<th>"+head+"</th>";
+			})
+			html_text+="</tr>";
+
+			var rows = root.Row;
+			rows.forEach(function(row){
+
+
+				html_text+="<tr><td>" + row.Company + "</td><td>" + row.Ships + "</td><td>";
+
+				var hub = row.Hubs.Hub;
+				if(hub.length>0){
+					html_text += "<ul><li><strong>" + hub[0] + "</strong></li>";
+					for(var i=1;i<hub.length;i++){
+						html_text += "<li>" + hub[i] + "</li>";
+					}
+					html_text += "</ul>";
+				}
+
+				html_text+= "</td><td>" +
+				row.Market + "</td><td>" + 
+				 "<a href='" + row.HomePage + "'>" + row.HomePage + "</a></td><td>" +
+				"<img src='" + row.Logo + "' width='300' height='150'></td>"
+				"</tr>"
+			})
+
+			html_text+="</table>"
+			html_text+="</body></html>";
+		}
+
+	</script>
+</body>
+</html>

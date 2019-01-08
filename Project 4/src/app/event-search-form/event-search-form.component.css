@@ -1,0 +1,11 @@
+button{
+    margin: 0 10px;
+}
+form{
+    border: 2px solid grey;
+    /* padding: 10px 10%; */
+    background: rgb(248, 248, 248);
+    margin: 10px 0;
+    padding: 30px 12%;
+}
+.material-icons.md-16 { font-size: 16px; vertical-align: middle}

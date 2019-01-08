@@ -1,0 +1,39 @@
+<resources>
+    <string name="app_name">eventSearch</string>
+    <string name="keyword_label">Keyword</string>
+    <string name="distance_label">Distance</string>
+    <string name="category_label">Category</string>
+    <string name="keyword_placeholder">Enter Keyword</string>
+    <string-array name="category">
+        <item>All</item>
+        <item>Music</item>
+        <item>Sports</item>
+        <item>Arts &amp; Theatre</item>
+        <item>Film</item>
+        <item>Miscellaneous</item>
+    </string-array>
+    <string-array name="unit">
+        <item>Miles</item>
+        <item>Kilometers</item>
+    </string-array>
+    <string-array name="sort_type">
+        <item>Default</item>
+        <item>Event Name</item>
+        <item>Time</item>
+        <item>Artist</item>
+        <item>Type</item>
+    </string-array>
+    <string-array name="sort_order">
+        <item>Ascending</item>
+        <item>Descending</item>
+    </string-array>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_maps">Map</string>
+    <item type="id" name="tag0"></item>
+    <item type="id" name="tag1"></item>
+    <item type="id" name="tag2"></item>
+    <item type="id" name="tag3"></item>
+    <item type="id" name="tag4"></item>
+
+</resources>

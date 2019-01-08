@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>BizOptima</title>
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat|Open+Sans">
+	<style type="text/css">
+    html,body{
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        padding: 0;
+    }
+    input:focus{
+    	border:none;
+    }
+		.container{
+			margin-left: 3%;
+			margin-right: 5%;
+			height:80px;
+		}
+		.plans{
+			text-align: center;
+		}
+		.allplans{
+			width: 1000px;
+			margin: 0 auto;
+			margin-top: 90px;
+		}
+		.plan{
+			float: left;
+			width: 29%;
+			height: 500px;
+			margin: 0 21px;
+			background: white;
+			box-sizing: border-box;
+			position: relative;
+		}
+		.plans h3{
+			margin-top: 50px;
+			font-weight: normal;
+			margin-bottom: 15px;
+		}
+		.plans p{
+			font-size: small;
+			color: grey;
+		}
+/*		.planwraper p{*/
+		.plancontent{
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			top: 0;
+			left: 0;
+		}
+		.plancontent p{
+			color: black;
+			font-weight: lighter;
+			line-height: 20px;
+		}
+/*		.planwraper h4{*/
+		.plancontent h4{
+			font-weight: normal;
+			margin-top: 60px;
+			margin-bottom: 30px;
+		}
+/*		.planwraper button{*/
+		.plancontent button{
+			margin-top: 30px;
+			background: #173b5b;
+			color: white;
+			border: none;
+			padding: 20px 40px;
+			font-size: medium;
+		}
+		.price{
+			margin-top: 50px;
+			font-weight: bold;
+		}
+/*		.planwraper{
+			width: 100%;
+			height: 100%;
+			display: inline-table;
+			background-image: url(http://csci571.com/hw/hw3/images/grid.png);
+			background-repeat: repeat;
+			background-size: 508px;
+			background-position: center;
+		}*/
+		.planwraper{
+			position: relative;
+			width: 100%;
+			height:100%;
+			display: inline-table;
+		}
+		.planwraper::after {
+			content: "";
+			display: block;
+			position: absolute;
+			top: -15px;
+			left: 0;
+			background-image: url(http://csci571.com/hw/hw3/images/grid.png);
+			width: 100%;
+			height: 100%;
+			opacity: 0.3;
+			z-index: 0;
+			background-repeat: repeat;
+			background-size: 508px;
+			background-position: center;
+		}
+		.features{
+			margin-left: 3.5%;
+			margin-right:2.5%;
+			height: 400px;
+		}
+		.feature{
+			float: left;
+			width: 31.22%;
+			padding-left: 0.5%;
+			box-sizing: border-box;
+			font-size: 10.48px;
+			line-height: 150%;
+			color: grey;
+			padding-right: 2.5%;
+			margin-left: 21.7px;
+			margin-top: 114px;
+		}
+		.feature h4{
+			font-family: sans-serif;
+			font-weight: normal;
+			font-size: 13px;
+			color: black;
+			line-height: 140%;
+		}
+		.navbar{
+			padding-bottom: 25px;
+			padding-top: 10px;
+			height: 26px;
+		}
+		.navbar>li{
+			display: block;
+			padding-top: 10px;
+
+		}
+		.navbar>li>a{
+			padding-left: 24px;
+			text-decoration: none;
+		}
+		.navbar-left{
+			float: left;
+			font-family:  sans-serif;
+			font-weight: lighter;
+		}
+		.navbar-left>li{
+			float: left;
+		}
+		.navbar-right{
+			float: right;
+			font-size: 13px;
+			padding-right: 25px;
+			line-height: 20px;
+		}
+		.navbar-right>li{
+			float:right;
+		}
+		a:link{
+			color: #d3d3d3e6;
+		}
+		a:visited{
+			color: #d3d3d3e6;
+		}
+		a:hover{
+			color: black;
+		}
+		a:focus {
+         outline:none;
+         -moz-outline:none;
+         }
+        #welcome{
+        	font-family: sans-serif;
+        	width: 1110px;
+        	position: relative;
+
+        }
+        #welcome img{
+        	margin-left: -50px;
+        	
+        }
+        .form{
+        	width:300px;
+        	height: 360px;
+        	background: rgb(23,59,91);
+        	position: absolute;
+        	left: 6%;
+        	top: 23.5%;
+        	color: white;
+        	padding-top: 40px;
+        	padding-left: 40px;
+        }
+        .form h1{
+        	line-height: 30px;
+        }
+        h1{
+        	margin: 0px;
+        	font-weight: lighter;
+        }
+        .main{
+        	width: 1110px;
+        	overflow: hidden;
+        	margin: 0 auto;
+        	background: white;
+        }
+        .slogan{
+        	text-align: center;
+        	font-family: sans-serif;
+        	height: 300px;
+        	background: rgb(244,244,244);
+        	position: relative;
+        }
+        .wrap{
+        	position: absolute;
+        	left: 0;top: 100px;right: 0;left: 0;
+        	margin: auto;
+        }
+        .prices img{
+        	width: 1791px;
+			margin-left: -746px;
+			margin-right: -795px;
+			margin-top: :auto;
+			height: 870px;
+			filter: grayscale(100%);
+			opacity: 0.3;
+        }
+        .plans{
+        	height: 720px;width: 1110px;
+        	font-family: 'Montserrat';
+        }
+        .register{
+        	height: 450px;
+			background-image: url(http://csci571.com/hw/hw3/images/notebook.jpg);
+			background-size: cover;
+			background-repeat: no-repeat;
+			background-position: center;
+			text-align: center;
+			font-family: 'Montserrat';
+			color: white;
+			position: relative;
+        }
+        .inner h2{
+        	padding-top: 150px;
+			font-weight: normal;
+			margin-bottom: 0px;
+        }
+        .inner p{
+        	font-size: small;
+        }
+        .inner{
+        	height: 450px;
+/*			background: #153553;
+			opacity: 0.8;*/
+			position: relative;
+        }
+        .inner::after{
+        	content: "";
+			display: block;
+			position: absolute;
+        	top:0;
+        	left: 0;
+        	width: 100%;
+        	height: 100%;
+        	background: #153553;
+        	opacity: 0.8;
+        }
+        .innercontent{
+        	font-size: 12px;
+        }
+        .price{
+        	font-family: sans-serif;
+        }
+        .foot{
+        	height: 300px;
+        	background:rgb(30,37,47);
+        	text-align: center;
+        	font-family: 'Montserrat';
+        }
+        .ybtn{
+        	font-size: 12px;
+        	border:none;
+        	background: rgb(247,222,61);
+        	height: 40px;
+        	width: 155px;"
+        }
+        button:hover{
+        	background: black;
+        	border:none;
+        	color: white;
+        }
+        .foot h2{
+			margin: 0;
+			padding-top: 80px;
+			color: white;
+			font-size: medium;
+			font-weight: normal;
+        }
+        .foot p{
+        	color: grey;
+        	font-size: 11px;
+        }
+        .icon{
+        	width: 30px;
+        	margin: 0 15px;
+		}
+        .icons{
+        	margin-top: 30px;
+        }
+        ::-moz-placeholder { 
+			  color: black;
+			  opacity: 1;
+			}
+		.main{
+			font-family: 'Montserrat';
+		}
+	</style>
+</head>
+<body>
+<div class="main">
+<!-- 	<div class="navbar"> -->
+		<div class="container">
+
+				<ul class="navbar navbar-left">
+					<li>MENU</li>
+				</ul>
+				<ul class="navbar navbar-right">
+					<li><a href="page2.html#services" target="_blank">Services</a></li>
+					<li><a href="page2.html#projects" target="_blank">Projects</a></li>
+					<li><a href="page2.html#about" target="_blank">About</a></li>			
+				</ul>
+
+		</div>
+<!-- 	</div> -->
+
+	<div id="welcome">
+		<img src="http://csci571.com/hw/hw3/images/lawyer.jpg" style="width: 1240px;filter: brightness(0.8);">
+		<div class="form">
+			<form>
+				<p style="font-size: 13px;margin-bottom: 4px;">DON'T WAIT</p>
+				<h1>IMPROVE</h1>
+				<h1>YOUR BUSINESS</h1>
+				<h1>TODAY!</h1>
+				<p style="color: yellow;font-style: italic;font-size: 11px;margin: 20px 0px;">
+				- Get your hands on Biz Optima -</p>
+				<input type="email" name="email" placeholder="Email" style="display: block;height: 42px;width: 255px;box-sizing: border-box;margin: 20px 0;">
+				<button class="ybtn">SIGN UP FOR FREE!</button>
+			</form>
+		</div>
+	</div>
+
+	<div class="features">
+		<div class="feature"><h4>AMAZING FEATURE#1</h4><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sed malesuada faucibus ex nec ultricies. Donec mattis egestas nisi non pretium. Suspendisse nec eros ut erat facilisis maximus. In congue et leo in varius. Vestibulum sit amet felis ornare, commodo orci ut, feugiat lorem.</p></div>
+		<div class="feature"><h4>AMAZING FEATURE#2</h4><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sed malesuada faucibus ex nec ultricies. Donec mattis egestas nisi non pretium. Suspendisse nec eros ut erat facilisis maximus. In congue et leo in varius. Vestibulum sit amet felis ornare, commodo orci ut, feugiat lorem.</p></div>
+		<div class="feature"><h4>AMAZING FEATURE#3</h4><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sed malesuada faucibus ex nec ultricies. Donec mattis egestas nisi non pretium. Suspendisse nec eros ut erat facilisis maximus. In congue et leo in varius. Vestibulum sit amet felis ornare, commodo orci ut, feugiat lorem.</p></div>
+	</div>
+
+	<div class="slogan">
+		<div class="wrap">
+			<p style="font-family:'Montserrat';font-size: 18px;">"I COULDN'T HAVE ASKED FOR MORE THAN THIS. BIZ OPTIMA IS THE NEXT KILLER APP."</p>
+			<span style="font-size: 12.5px"><strong>John Doe</strong></span><span style="color: grey;font-size: 12.5px">, CEO & Founder, Biz Optima</span>
+		</div>
+	</div>
+</div>
+
+<div style="width: 1110px;
+        	overflow: hidden;
+        	margin: 0 auto;">
+
+	<div class="prices" style="position: fixed;bottom: -67px;overflow: auto;text-align: center;z-index: -1;width: 1110px;">
+		<img src="http://csci571.com/hw/hw3/images/glasses.png">
+	</div>
+
+	<div class="plans">
+		<h3>PRICES</h3>
+		<p>AFFORDABLE FOR EVERYONE</p>
+		<div class="allplans">
+
+			<div class="plan">
+				<div class="planwraper"></div>
+				<div class="plancontent">
+					<h4>BASIC PLAN</h4>
+					<p>Plan Amazing feature #1</p>
+					<p>Plan Amazing feature #2</p>
+					<p>Plan Amazing feature #3</p>
+					<p>Plan Amazing feature #4</p>
+					<div class="price">
+						<h1>$29.99</h1>
+						<h1>Monthly</h1>
+					</div>
+					<button>BUY NOW</button>
+				</div>
+			</div>
+
+
+			<div class="plan">
+				<div class="planwraper"></div>
+				<div class="plancontent">
+					<h4>STANDART PLAN</h4>
+					<p>Plan Amazing feature #1</p>
+					<p>Plan Amazing feature #2</p>
+					<p>Plan Amazing feature #3</p>
+					<p>Plan Amazing feature #4</p>
+					<div class="price">
+						<h1>$39.99</h1>
+						<h1>Monthly</h1>
+					</div>
+					<button>BUY NOW</button>
+				</div>
+			</div>
+			
+
+			<div class="plan">
+				<div class="planwraper">
+				</div>
+				<div class="plancontent">
+					<h4>CORPORATE PLAN</h4>
+					<p>Plan Amazing feature #1</p>
+					<p>Plan Amazing feature #2</p>
+					<p>Plan Amazing feature #3</p>
+					<p>Plan Amazing feature #4</p>
+					<div class="price">
+						<h1>$49.99</h1>
+						<h1>Monthly</h1>
+					</div>
+					<button>BUY NOW</button>
+				</div>
+			</div>
+
+		</div>
+	</div>
+
+	<div class="register">
+		<div class="inner">
+		</div>
+		<div class="innerContent" style="position: absolute;top: 150px;left: 0;width: 100%;height: 100%;">
+			<h2>TRY THE BEST APP IN THE MARKET</h2>
+			<p style="font-size: 12px;">tell more why your software is amazing and why users need to sign up</p>
+			<button class="ybtn" style="margin-top: 20px;">TRY IT FOR FREE</button>
+		</div>
+	</div>
+
+	<div class="foot">
+		<h2>BIZ OPTIMA</h2>
+		<p>224 Grant Ave, Redondo Beach, CA, 90278 310.555.1212 Ext.3 for Business Needs</p>
+		<div class="icons">
+			<a href="http://www.facebook.com" target="_blank"><img class="icon" src="http://csci571.com/hw/hw3/images/facebook.png"></a>
+			<a href="http://www.twitter.com" target="_blank"><img class="icon" src="http://csci571.com/hw/hw3/images/twitter.png"></a>
+			<a href="http://www.instagram.com" target="_blank"><img class="icon" src="http://csci571.com/hw/hw3/images/instagram.png"></a>
+			<a href="http://www.youtube.com" target="_blank"><img class="icon" src="http://csci571.com/hw/hw3/images/youtube.png"></a>
+			<a href="https://plus.google.com/discover" target="_blank"><img class="icon" src="http://csci571.com/hw/hw3/images/googleplus.png"></a>
+		</div>
+		
+	</div>
+
+</div>
+</body>
+</html>
