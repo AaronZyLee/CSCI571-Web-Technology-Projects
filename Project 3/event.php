@@ -111,9 +111,6 @@
   
   	<?php
   		include 'geoHash.php';
-		$GOOGLE_API_KEY = "AIzaSyCk4BpaxE_kQc8V4BGt_NA8UTe8wojz8gI";
-		$TICKET_API_KEY = "w7cnGIumuVssskmEBdx8Uh2vblzfbtoq";
-//		$segmentId = array("Music"=>"KZFzniwnSyZfZ7v7nJ", "Sports"=>"KZFzniwnSyZfZ7v7nE", "Art & Theatre"=>"KZFzniwnSyZfZ7v7na", "Film"=>);
 		
 		function getJSON($url){
 			return json_decode(file_get_contents($url),true);
