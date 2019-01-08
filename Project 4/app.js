@@ -7,18 +7,18 @@ var express = require('express'),
 	fetch   = require('node-fetch'),
 	dateFormat = require('dateformat'),
 	SpotifyWebApi = require('spotify-web-api-node'),
-	GOOGLE_API_KEY = 'AIzaSyCk4BpaxE_kQc8V4BGt_NA8UTe8wojz8gI',
-	TICKET_API_KEY = 'w7cnGIumuVssskmEBdx8Uh2vblzfbtoq',
-	SEARCH_ENGINE_ID = '003012504293356503690:oi8rq5eq5ty',
-	SONGKICK_API_KEY = 'iU5DFPv3bniLqs6J',
+	GOOGLE_API_KEY = '',
+	TICKET_API_KEY = '',
+	SEARCH_ENGINE_ID = '',
+	SONGKICK_API_KEY = '',
 	segmentDict    =  {'All': '', 'Music': 'KZFzniwnSyZfZ7v7nJ', 'Arts & Theatre': 'KZFzniwnSyZfZ7v7na', 'Film': 'KZFzniwnSyZfZ7v7nn', 'Miscellaneous': 'KZFzniwnSyZfZ7v7n1', 'Sports': 'KZFzniwnSyZfZ7v7nE'};
 
 function fetchJSON(url) {
 	return fetch(url).then(response => response.json());
 }
 var spotifyApi = new SpotifyWebApi({
-	clientId: 'c095ce1681e04ec4904f5820edd48baf',
-	clientSecret: '2b3074d0dbaf48eb9adb4778335686fa'
+	clientId: '',
+	clientSecret: ''
 });
 getCredential();
 
